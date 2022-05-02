@@ -6,5 +6,6 @@ link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
 def test_add_to_cart_button_displayed(browser):
     browser.get(link)
-    button = browser.find_element(By.CLASS_NAME, "btn-add-to-basket")
-    assert button, "'Add to cart' button should be displayed on the web page."
+    # if no such elements found, an empty list is returned. Empty list evaluates as False.
+    assert browser.find_elements(By.CLASS_NAME, "btn-add-to-basket"), \
+        "'Add to cart' button should be displayed on the web page."
